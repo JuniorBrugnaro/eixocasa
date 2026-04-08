@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EIXO CASA - Sistema de Design</title>
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <style>
+        /* ESTILOS DE ENVOLTÓRIO DO SISTEMA DE DESIGN
+      Esses estilos são exclusivos para o layout/documentação do Sistema de Design.
+      Os componentes em si usam as classes "originais" simuladas do Elicyon.
+    */
+        :root {
+            --ds-bg: #FDFBF7;
+            --ds-text: #2A2A2A;
+            --ds-accent: #A68562;
+            --ds-border: rgba(0, 0, 0, 0.1);
+            --ds-bronze: #8B7355;
+            --ds-areia: #D4C5B0;
+            --font-serif: "Playfair Display", serif;
+            --font-sans: "Inter", "Helvetica Neue", sans-serif;
+        }
+
+        body.design-system-page {
+            margin: 0;
+            padding: 0;
+            background-color: var(--ds-bg);
+            color: var(--ds-text);
+            font-family: var(--font-sans);
+            scroll-behavior: smooth;
+        }
+
+        /* Navegação Superior */
+        .ds-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(250, 249, 246, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            border-bottom: 1px solid var(--ds-border);
+            padding: 1rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .ds-nav-logo {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            color: var(--ds-text);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .ds-nav-logo-img {
+            height: 1.25rem;
+            width: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .ds-nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .ds-nav-links a {
+            text-decoration: none;
+            color: var(--ds-text);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .ds-nav-links a:hover {
+            color: var(--ds-accent);
+        }
+
+        /* Seções de Documentação */
+        .ds-section {
+            padding: 8rem 5% 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            border-bottom: 1px solid var(--ds-border);
+        }
+
+        .ds-section-header {
+            margin-bottom: 4rem;
+        }
+
+        .ds-section-title {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            font-weight: 400;
+            margin: 0 0 1rem 0;
+        }
+
+        .ds-section-desc {
+            font-size: 1.1rem;
+            opacity: 0.7;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        /* SIMULAÇÃO DE CLASSES ORIGINAIS DO ELICYON
+      (Estes representam as classes HTML/CSS originais do site)
+    */
+        .el-hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: url('https://scontent-gru2-2.xx.fbcdn.net/v/t39.30808-6/589904989_1445696824226905_8194935920991364858_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=2a1932&_nc_eui2=AeE2ob07o_tY6TiBSUARoC5AW6vRlJmRWvRbq9GUmZFa9Ch_Td0BmQdtSoo6ezOxpow&_nc_ohc=whVOx-9fX9EQ7kNvwERn0RO&_nc_oc=Adp_KflTTd2Ut4vWFY7t9wxxB7Qvo34P_wf-xh6TQIY_PSj7zKaggUZktWw1hOmD3fc&_nc_zt=23&_nc_ht=scontent-gru2-2.xx&_nc_gid=_5NzQYFmntOXrfgcbgd_Tw&_nc_ss=7a3a8&oh=00_Af1rPOFD80u6UAG6P6j7l1kaHHKXoma0GgfFZw2R1gvV9w&oe=69DC3FDE') center/cover no-repeat;
+            position: relative;
+            color: #fff;
+        }
+
+        .el-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .el-hero-content {
+            position: relative;
+            z-index: 2;
+            animation: el-fade-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .el-hero-subtitle {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 1.5rem;
+        }
+
+        .el-hero-title {
+            font-family: var(--font-serif);
+            font-size: 5vw;
+            font-weight: 300;
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .el-heading-1 {
+            font-family: var(--font-serif);
+            font-size: 4.5rem;
+            font-weight: 300;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        .el-heading-2 {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            font-weight: 300;
+            line-height: 1.2;
+        }
+
+        .el-heading-3 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 400;
+            line-height: 1.3;
+        }
+
+        .el-heading-4 {
+            font-family: var(--font-serif);
+            font-size: 1.75rem;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        .el-text-bold-l {
+            font-family: var(--font-sans);
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .el-text-bold-m {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .el-text-regular-l {
+            font-family: var(--font-sans);
+            font-size: 1.125rem;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .el-text-regular-m {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .el-text-caption {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .el-btn-primary {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--ds-text);
+            color: var(--ds-bg);
+            text-decoration: none;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            border: 1px solid var(--ds-text);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+        }
+
+        .el-btn-primary:hover {
+            background: transparent;
+            color: var(--ds-text);
+        }
+
+        .el-btn-secondary {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: transparent;
+            color: var(--ds-text);
+            text-decoration: none;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            border: 1px solid var(--ds-border);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+        }
+
+        .el-btn-secondary:hover {
+            border-color: var(--ds-text);
+        }
+
+        /* Layouts de Grade */
+        .el-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        /* Cores */
+        .color-swatch {
+            width: 100%;
+            height: 120px;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--ds-border);
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Tabela de Tipografia */
+        .type-row {
+            display: flex;
+            align-items: baseline;
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--ds-border);
+        }
+
+        .type-name {
+            width: 20%;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+        }
+
+        .type-preview {
+            width: 60%;
+        }
+
+        .type-specs {
+            width: 20%;
+            text-align: right;
+            font-family: monospace;
+            color: #888;
+        }
+
+        /* Animações */
+        @keyframes el-fade-up {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .anim-box {
+            width: 150px;
+            height: 150px;
+            background: #EAE6DF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .el-hover-lift {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .el-hover-lift:hover {
+            transform: translateY(-10px);
+        }
+
+        /* SEÇÃO DE LOGO E BRANDING */
+        .ds-logo-section {
+            padding: 8rem 5% 6rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+            border-top: 1px solid var(--ds-border);
+        }
+
+        .ds-section-desc {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .ds-logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2rem auto;
+            animation: el-fade-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .ds-logo-img {
+            max-width: 360px;
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.08));
+        }
+
+        .ds-brand-message {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--ds-text);
+            max-width: 600px;
+            margin: 3rem auto 0;
+            font-family: var(--font-serif);
+            font-weight: 300;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body class="design-system-page">
+
+    <nav class="ds-nav">
+        <a href="#" class="ds-nav-logo">
+            <img class="ds-nav-logo-img" src="./LOGOTIPO 2.png" alt="Logo EIXO CASA"/>
+        
+        </a>
+        <div class="ds-nav-links">
+            <a href="#hero">Hero</a>
+            <a href="#typography">Tipografia</a>
+            <a href="#colors">Cores</a>
+            <a href="#components">Componentes</a>
+            <a href="#layout">Layout</a>
+            <a href="#motion">Movimento</a>
+        </div>
+    </nav>
+
+    <section id="hero" style="margin-top: 60px;">
+        <header class="el-hero">
+            <div class="el-hero-content">
+                <p class="el-hero-subtitle">Curadoria de Objetos e Decoração</p>
+                <h1 class="el-hero-title">Peças que Transformam<br>Ambientes com Identidade</h1>
+                <div style="margin-top: 3rem;">
+                    <a href="#typography" class="el-btn-primary"
+                        style="background: transparent; border-color: #fff; color: #fff;">Conhecer Marca</a>
+                </div>
+            </div>
+        </header>
+    </section>
+
+    <section id="typography" class="ds-section">
+        <div class="ds-section-header">
+            <h2 class="ds-section-title">1. Tipografia e Voz</h2>
+            <p class="ds-section-desc">A comunicação da EIXO CASA é elegante, sensível e inspiradora. Cada mensagem reflete a sofisticação e a sensibilidade curatorial que define a marca.</p>
+        </div>
+
+        <div class="type-row">
+            <div class="type-name">Título 1</div>
+            <div class="type-preview">
+                <h1 class="el-heading-1" style="margin:0;">Curadoria para a Casa</h1>
+            </div>
+            <div class="type-specs">72px / 1.1</div>
+        </div>
+        <div class="type-row">
+            <div class="type-name">Título 2</div>
+            <div class="type-preview">
+                <h2 class="el-heading-2" style="margin:0;">Objetos com Identidade</h2>
+            </div>
+            <div class="type-specs">56px / 1.2</div>
+        </div>
+        <div class="type-row">
+            <div class="type-name">Título 3</div>
+            <div class="type-preview">
+                <h3 class="el-heading-3" style="margin:0;">Peças Escolhidas com Propósito</h3>
+            </div>
+            <div class="type-specs">40px / 1.3</div>
+        </div>
+        <div class="type-row">
+            <div class="type-name">Título 4</div>
+            <div class="type-preview">
+                <h4 class="el-heading-4" style="margin:0;">Cada Detalhe Importa</h4>
+            </div>
+            <div class="type-specs">28px / 1.4</div>
+        </div>
+        <div class="type-row">
+            <div class="type-name">Negrito G</div>
+            <div class="type-preview">
+                <p class="el-text-bold-l" style="margin:0;">Liderando a Identidade dos Espaços</p>
+            </div>
+            <div class="type-specs">20px / 1.5</div>
+        </div>
+        <div class="type-row">
+            <div class="type-name">Regular G</div>
+            <div class="type-preview">
+                <p class="el-text-regular-l" style="margin:0;">Na EIXO CASA, cada peça é selecionada com olhar curatorial para criar ambientes com personalidade, elegância e autenticidade.</p>
+            </div>
+            <div class="type-specs">18px / 1.6</div>
+        </div>
+        <div class="type-row">
+            <div class="type-name">Legenda</div>
+            <div class="type-preview">
+                <p class="el-text-caption" style="margin:0;">Curadoria de Decoração Contemporânea</p>
+            </div>
+            <div class="type-specs">12px / 2.0</div>
+        </div>
+    </section>
+
+    <section id="colors" class="ds-section">
+        <div class="ds-section-header">
+            <h2 class="ds-section-title">2. Paleta da Marca</h2>
+            <p class="ds-section-desc">Cores sofisticadas que refletem elegância e contemporaneidade. Uma paleta que equilibra claridade com profundidade, refletindo a sensibilidade curatorial.</p>
+        </div>
+
+        <div class="color-grid">
+            <div>
+                <div class="color-swatch" style="background-color: #FDFBF7;"></div>
+                <p class="el-text-bold-m" style="margin: 0 0 4px;">Fundo Primário</p>
+                <p class="el-text-caption" style="margin: 0;">#FDFBF7 - Off White</p>
+            </div>
+            <div>
+                <div class="color-swatch" style="background-color: #2A2A2A;"></div>
+                <p class="el-text-bold-m" style="margin: 0 0 4px;">Texto Primário</p>
+                <p class="el-text-caption" style="margin: 0;">#2A2A2A - Carvão</p>
+            </div>
+            <div>
+                <div class="color-swatch" style="background-color: #D4C5B0;"></div>
+                <p class="el-text-bold-m" style="margin: 0 0 4px;">Secundário</p>
+                <p class="el-text-caption" style="margin: 0;">#D4C5B0 - Areia</p>
+            </div>
+            <div>
+                <div class="color-swatch" style="background-color: #A68562;"></div>
+                <p class="el-text-bold-m" style="margin: 0 0 4px;">Destaque</p>
+                <p class="el-text-caption" style="margin: 0;">#A68562 - Marrom Café</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="components" class="ds-section">
+        <div class="ds-section-header">
+            <h2 class="ds-section-title">3. Componentes da Interface</h2>
+            <p class="ds-section-desc">Elementos interativos refinados e minimalistas. Botões e componentes que mantêm a elegância e sutil sofisticação da marca EIXO CASA.</p>
+        </div>
+
+        <div style="margin-bottom: 3rem;">
+            <h4 class="el-heading-4" style="margin-bottom: 1.5rem;">Botões</h4>
+            <div style="display: flex; gap: 2rem; align-items: center;">
+                <div>
+                    <a href="#" class="el-btn-primary">Explorar Curadoria</a>
+                    <p class="el-text-caption" style="margin-top: 1rem; text-align: center;">Primário Padrão / Hover</p>
+                </div>
+                <div>
+                    <a href="#" class="el-btn-secondary">Conheça Mais</a>
+                    <p class="el-text-caption" style="margin-top: 1rem; text-align: center;">Secundário Padrão / Hover
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="layout" class="ds-section">
+        <div class="ds-section-header">
+            <h2 class="ds-section-title">4. Layout e Composição</h2>
+            <p class="ds-section-desc">Estrutura visual que equilibra objetos em destaque com conteúdo elegante. O layout reflete a concepção de EIXO CASA como galeria de curadoria.</p>
+        </div>
+
+        <div class="el-grid-2">
+            <div style="background: #EAE6DF; padding: 4rem; display: flex; align-items: center;">
+                <div>
+                    <h3 class="el-heading-3" style="margin-top: 0;">Curadoria para Viver Bem</h3>
+                    <p class="el-text-regular-m">A EIXO CASA nasceu para ser o eixo estético da sua casa. Cada peça é selecionada com sensibilidade e propósito, buscando trazer identidade e autenticidade para ambientes.</p>
+                    <a href="#" class="el-btn-secondary" style="margin-top: 1.5rem;">Visitar Loja</a>
+                </div>
+            </div>
+            <div
+                style="background: url('https://scontent-gru1-2.xx.fbcdn.net/v/t51.75761-15/505450214_18516624640043998_1616050995886664219_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeFPbmxaao1_lJjd48jBNgBo5URmprWNXMflRGamtY1cx2b2BnyumCrV8WFlwXfcdBc&_nc_ohc=qIvNpl5gwjsQ7kNvwEWhWTJ&_nc_oc=Adps7JtXnswZXS98NAxVRepvjzGRI5alvUSFSRCeEnQjShG7Y7wEFjvckeu_JyDzKKs&_nc_zt=23&_nc_ht=scontent-gru1-2.xx&_nc_gid=FzUXlxfDWsi_bxpAYV_COg&_nc_ss=7a3a8&oh=00_Af2NdgIJWnvqy7BZRoYzTRpkHjD9U_b1whMGSXUB0WQsdw&oe=69DC167B') center/cover no-repeat; min-height: 400px;">
+            </div>
+        </div>
+    </section>
+
+    <section id="motion" class="ds-section">
+        <div class="ds-section-header">
+            <h2 class="ds-section-title">5. Interações e Experiência</h2>
+            <p class="ds-section-desc">Transições suaves e elegantes que refletem a sensibilidade da marca. Cada interação reforça a sofisticação e o cuidado curatorial de EIXO CASA.</p>
+        </div>
+
+        <div style="display: flex; gap: 2rem;">
+            <div>
+                <div class="anim-box" style="animation: el-fade-up 2s infinite alternate;">Entre em Contato</div>
+                <p class="el-text-caption">.el-fade-up</p>
+            </div>
+            <div>
+                <div class="anim-box el-hover-lift">Descubra Mais</div>
+                <p class="el-text-caption">.el-hover-lift</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="branding" class="ds-logo-section">
+        <div class="ds-section-header" style="margin-bottom: 2rem;">
+            <h2 class="ds-section-title">Marca</h2>
+            <p class="ds-section-desc">A identidade visual de EIXO CASA reflete sofisticação, curadoria e autenticidade.</p>
+        </div>
+
+        <div class="ds-logo-container">
+            <img class="ds-logo-img" src="./LOGOTIPO 2.png" alt="Logo EIXO CASA"/>
+        </div>
+
+        <div class="ds-brand-message">
+            “Objetos que transformam ambientes em lugares com alma.”
+        </div>
+    </section>
+
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Node modules (caso use no futuro)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Arquivos de editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Arquivos temporários
+temp/
+tmp/
