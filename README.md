@@ -76,8 +76,8 @@ EIXO CASA: Curadoria para a casa.
 ## ✨ Créditos
 
 Design System desenvolvido para EIXO CASA - Curadoria de Objetos e Decoração
-
+Desenvolvido por: Junior Brugnaro
 ---
 
-**Data de Criação**: Abril de 2026
+**Data de Criação**: Fevereiro de 2026
 **Versão**: 1.0
